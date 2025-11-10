@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base theme for your app -->
+    <style name="Theme.MyApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your colors if needed -->
+    </style>
+
+    <!-- AppCompat descendant for AppCompatActivity -->
+    <style name="Theme.MyApp.AppCompat" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize colors, fonts, etc. -->
+    </style>
+</resources>

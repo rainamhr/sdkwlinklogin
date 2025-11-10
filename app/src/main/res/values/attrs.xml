@@ -1,0 +1,30 @@
+<resources>
+    <attr name="otpViewStyle" format="reference"/>
+    <attr name="OtpState_filled" format="boolean"/>
+    <attr name="OtpHideLineWhenFilled" format="boolean"/>
+    <attr name="OtpItemSpacing" format="dimension"/>
+    <attr name="OtpLineColor" format="color"/>
+    <attr name="OtpItemCount" format="integer"/>
+    <attr name="OtpViewType" format="string"/>
+
+
+
+
+
+    <attr name="frameSize" format="float"/>
+    <attr name="frameAspectRatioHeight" format="float"/>
+    <attr name="frameAspectRatioWidth" format="float"/>
+
+    <!-- Other attributes -->
+    <attr name="frameColor" format="color"/>
+    <attr name="frameCornersSize" format="dimension"/>
+    <attr name="frameCornersRadius" format="dimension"/>
+    <attr name="frameThickness" format="dimension"/>
+    <attr name="maskColor" format="color"/>
+    <attr name="flashButtonVisible" format="boolean"/>
+    <attr name="autoFocusButtonVisible" format="boolean"/>
+    <attr name="flashButtonColor" format="color"/>
+    <attr name="autoFocusButtonColor" format="color"/>
+
+
+</resources>
