@@ -37,7 +37,7 @@ class MasterActivity : AppCompatActivity(), SingleSignOnCallback {
                 enableSMSLogin = true,
                 enableQRLogin = true,
                 appId = "63GRuqwwXb",
-                clientIdentifier = "freshchat",
+                clientIdentifier = "quick-connect",
             )
             sso?.init()
             sso?.setOnSingleSignOnCallback(this)
