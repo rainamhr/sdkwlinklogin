@@ -1,12 +1,15 @@
 package com.example.sdkwlinklogin
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import dalvik.system.ZipPathValidator.setCallback
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import np.com.geniussystems.wlinklogin.lib.SingleSignOn
 import np.com.geniussystems.wlinklogin.lib.SingleSignOnCallback
 
@@ -18,6 +21,11 @@ class MasterActivity : AppCompatActivity(), SingleSignOnCallback {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_master)
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+        }
 
         tvResult = findViewById(R.id.tvResult)
         val btnLogin: Button = findViewById(R.id.btnLogin)
@@ -31,7 +39,10 @@ class MasterActivity : AppCompatActivity(), SingleSignOnCallback {
                 appId = "63GRuqwwXb",
                 clientIdentifier = "freshchat",
             )
-            sso?.init() // <- IMPORTANT
+            sso?.init()
+            sso?.setOnSingleSignOnCallback(this)
+
+
         } catch (e: Exception) {
             Log.e("SSO", "Failed to initialize SingleSignOn: ${e.message}")
         }
@@ -39,6 +50,7 @@ class MasterActivity : AppCompatActivity(), SingleSignOnCallback {
         btnLogin.setOnClickListener {
             Log.e("SSO login", "Login button clicked")
             sso?.login()
+
         }
     }
 
@@ -54,7 +66,7 @@ class MasterActivity : AppCompatActivity(), SingleSignOnCallback {
 
     override fun onLoginError(message: String?) {
         Log.e("SSO Error", message ?: "Unknown error")
-        tvResult.text = "Login Error: $message"
+        tvResult.text = "Login Error: $message ---- end"
     }
 
     override fun onDestroy() {

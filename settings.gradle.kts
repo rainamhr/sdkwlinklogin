@@ -22,5 +22,5 @@ dependencyResolutionManagement {
 rootProject.name = "sdkwlinklogin"
 
 // Include app and library module
-include(":app")
-include(":lib")
+include(":app", ":wlink-login")
+project(":wlink-login").projectDir = file("wlink-login")
